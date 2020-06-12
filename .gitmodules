@@ -1,0 +1,3 @@
+[submodule "submod_action_sub"]
+	path = submod_action_sub
+	url = https://github.com/w-haibara/submod_action_sub
