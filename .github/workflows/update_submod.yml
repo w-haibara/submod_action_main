@@ -8,4 +8,15 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "Update!"
+    - name: GitHub Commit
+      run: |
+        git config --local user.name "w-haibara"
+        git config --local user.email "hwhaibarawataru@gmail.com"
+        git add -A
+        git status
+        git commit -m "update submodule (by update_submodule.yml)"
+    - name: GitHub Push
+      uses: ad-m/github-push-action@v0.5.0
+      with:
+        branch: dev
+        github_token: ${{ secrets.GITHUB_TOKEN }}
