@@ -1,0 +1,10 @@
+name: Main
+on: push
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - run: | 
+        cat ./submod_action_sub/text.txt >> main.txt
+        cat main.txt
