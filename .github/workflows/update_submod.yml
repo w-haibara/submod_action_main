@@ -13,7 +13,7 @@ jobs:
         submodules: true
     - name: Update submodule
       run: |
-        git submodule update --remote ./submodule_action_sub
+        git submodule update --remote ./submod_action_sub/
     - name: Git commit
       run: |
         git config --local user.name "w-haibara"
