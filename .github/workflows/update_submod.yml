@@ -8,6 +8,24 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - name: Hello
+    - uses: actions/checkout@v1
+      with:
+        submodules: true
+    - name: Update submodule
       run: |
-        echo "Hello!"
+        git submodule update --remote ./submod_action_sub/
+    - name: Git commit
+      run: |
+        git config --local user.name "w-haibara"
+        git config --local user.email "hwhaibarawataru@gmail.com"
+        git add -A
+        git status
+        git commit -m "update submodule (by update_submodule.yml)"
+    - name: Git push
+      uses: ad-m/github-push-action@v0.5.0
+      with:
+        branch: master
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+    - name: Main process
+      run: |
+        bash ./main.sh
