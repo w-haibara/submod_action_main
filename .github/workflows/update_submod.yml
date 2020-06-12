@@ -1,15 +1,11 @@
-name: build
+name: Update Submodule
 
 on:
   repository_dispatch:
-    types: [build]
-  push:
-    branches:
-      - master
+    types: [update]
 
 jobs:
   build:
-    name: Update Submodules
     runs-on: ubuntu-latest
     steps:
       - run: echo "Update!"
