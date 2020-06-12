@@ -8,6 +8,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+    - uses: actions/checkout@v1
+      with:
+        submodules: true
     - name: Update submodule
       run: |
         git submodule update --remote ./submodule_action_sub
