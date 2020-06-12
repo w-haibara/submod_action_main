@@ -28,5 +28,4 @@ jobs:
         github_token: ${{ secrets.GITHUB_TOKEN }}
     - name: Main process
       run: |
-        cat ./submod_action_sub/text.txt >> main.txt
-        cat main.txt
+        bash ./main.sh
